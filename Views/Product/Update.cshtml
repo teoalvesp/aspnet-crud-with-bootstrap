@@ -1,0 +1,47 @@
+@model CRUD_AspNet.Models.Product
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h1>Editar Produto</h1>
+
+        <form asp-action="Update" method="post"> <!-- Alterado para "Edit" -->
+            @Html.AntiForgeryToken()
+
+            <input type="hidden" asp-for="Id" /> <!-- Mantém o Id para atualização -->
+            <div class="form-group">
+                <label for="Name">Nome</label>
+                <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" asp-for="Name"
+                    required />
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label for="Price"> Novo Preço | Atual: @Model.Price.ToString("C2", new
+                    System.Globalization.CultureInfo("pt-BR"))</label>
+
+                <input type="number" class="form-control" id="Price" name="Price" asp-for="Price" required />
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a href="@Url.Action("Index", "Product")" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

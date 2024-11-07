@@ -1,0 +1,97 @@
+﻿@model IEnumerable<CRUD_AspNet.Models.Product>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+
+    <!-- Importando o CSS do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Controlando a largura da tabela */
+        .table {
+            width: 70%;
+            /* Tamanho da tabela, menor largura */
+            margin: 0 auto;
+            /* Centraliza a tabela */
+        }
+
+        #Id {
+            width: 5%;
+            /* Coluna ID menor */
+        }
+
+        #Name {
+            width: 30%;
+            /* Coluna Nome maior */
+        }
+
+        #Price {
+            width: 13%;
+            /* Coluna Preço maior */
+        }
+
+        #Actions {
+            width: 14%;
+            /* Coluna Ações com tamanho ajustado */
+        }
+
+        .TextCenter {
+            text-align: center;
+        }
+
+        #btn {
+            margin-left: 15%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h1 style="margin: 1.5em 0;" class="TextCenter">Lista de Produtos</h1>
+
+        <!-- Adicionar Produto -->
+        <a id="btn" href="@Url.Action("Create", "Product")" class="btn btn-success mb-3">Adicionar Produto</a>
+
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th id="Id">ID</th>
+                    <th id="Name">Nome</th>
+                    <th id="Price">Preço</th>
+                    <th id="Actions">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td class="TextCenter">@product.Id</td>
+                        <td>@product.Name</td>
+                        <td>@product.Price.ToString("C2", new System.Globalization.CultureInfo("pt-BR"))</td>
+                        <td class="TextCenter">
+                            <!-- Botão Editar -->
+                            <a href="@Url.Action("Update", "Product", new { id = product.Id })"
+                                class="btn btn-primary btn-sm">Editar</a>
+
+                            <!-- Botão Deletar -->
+                            <a href="@Url.Action("Delete", "Product", new { id = product.Id })"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Incluindo Popper.js e Bootstrap JS corretamente -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
