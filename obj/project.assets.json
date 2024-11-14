@@ -4360,11 +4360,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Area Dev\\DotNet Projects\\asp net project\\CRUD_AspNet\\CRUD_AspNet.csproj",
+      "projectUniqueName": "C:\\Area Dev\\DotNet Projects\\aspnet-crud-with-bootstrap\\CRUD_AspNet.csproj",
       "projectName": "CRUD_AspNet",
-      "projectPath": "C:\\Area Dev\\DotNet Projects\\asp net project\\CRUD_AspNet\\CRUD_AspNet.csproj",
+      "projectPath": "C:\\Area Dev\\DotNet Projects\\aspnet-crud-with-bootstrap\\CRUD_AspNet.csproj",
       "packagesPath": "C:\\Users\\tteus\\.nuget\\packages\\",
-      "outputPath": "C:\\Area Dev\\DotNet Projects\\asp net project\\CRUD_AspNet\\obj\\",
+      "outputPath": "C:\\Area Dev\\DotNet Projects\\aspnet-crud-with-bootstrap\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tteus\\AppData\\Roaming\\NuGet\\NuGet.Config"
